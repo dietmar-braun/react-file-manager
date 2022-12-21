@@ -45,7 +45,7 @@ const ReactFileManagerFileForm:React.FC<IFileForm> = (props) => {
 
 
     return (
-        <form onSubmit={handleFormSubmit} className="rfm-file-form">
+        <form onSubmit={handleFormSubmit} className={"rfm-file-form" + (props.isCentered ? " center" : "")}>
             <input type="text" className={inputClass + ' rmf-file-input'}
 
                 placeholder={(props.fileType == 'none' || props.fileType == undefined ? "Datei" : props.fileType) + " auswählen..."} 
@@ -53,7 +53,7 @@ const ReactFileManagerFileForm:React.FC<IFileForm> = (props) => {
                 onClick={handleFileTextFieldClick} 
                 onChange={handleFileTextChange}
                 />
-            <input id="tb_uploader_file_input" type="file" className="hidden" onChange={handleFileSelection} />
+            <input id="rmf-uploader-file-input" type="file" className="hidden" onChange={handleFileSelection} />
 
             {props.errorMsg !== undefined && props.errorMsg != '' ? <p className={errorMsgClass}>{props.errorMsg}</p> : null}
             

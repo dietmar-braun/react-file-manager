@@ -6,7 +6,8 @@ import  ReactFileManagerFileForm  from './lib/components/ReactFileManagerFileFor
 function App() {
   return (
     <div className="App">
-      <ReactFileManagerFileForm />
+      <ReactFileManagerFileForm 
+            isCentered={false} />
       <header className="App-header">
         
         <p>
