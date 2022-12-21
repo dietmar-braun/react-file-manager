@@ -1,0 +1,9 @@
+
+
+/* File Form */
+.rfm-file-form {padding: 1em; background-color: rgb(182, 182, 217);}
+.rfm-file-form.center {margin: auto;}
+
+.rfm-file-form input {display: block; margin: 1em; margin-top: 1em;}
+
+.rfm-file-form .rmf-file-input {padding: 1em; min-width: 200px;}

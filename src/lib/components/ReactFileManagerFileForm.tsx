@@ -1,10 +1,21 @@
 import React, { Component, useState } from 'react';
 
+import './style/style.css';
+
+interface IEventFunc {
+    (event: any): {}
+}
 interface IFileForm {
-    
+    fileType?:string,
+    isCentered?: boolean,
+    handleFileSelection?:IEventFunc,
+    handleFormSubmit?:IEventFunc,
+    handleFileTextChange?:IEventFunc,
+    errorMsg?:string,
+    uploadButtonText?:string,
 }
 
-const ReactFileManagerFileForm:React.FC<any> = (props) => { 
+const ReactFileManagerFileForm:React.FC<IFileForm> = (props) => { 
     const [fileName, setFileName] = useState<string>('');
     //const [fileType, setFileTye] = useState<string>('');
 
@@ -21,23 +32,23 @@ const ReactFileManagerFileForm:React.FC<any> = (props) => {
     };
 
     const handleFileSelection = (event:any) => {
-        if(props.handleFileSelection === 'function')
+        if(typeof props.handleFileSelection === 'function')
             props.handleFileSelection(event);
     };
 
     const handleFormSubmit = (event:any) => {
         event.preventDefault();
 
-        if(props.handleFormSumbit === 'function')
+        if(typeof props.handleFormSubmit === 'function')
             props.handleFormSubmit(event);
     }
 
 
     return (
-        <form onSubmit={handleFormSubmit}>
-            <input type="text" className={inputClass}
+        <form onSubmit={handleFormSubmit} className="rfm-file-form">
+            <input type="text" className={inputClass + ' rmf-file-input'}
 
-                placeholder={(props.filetype == 'none' || props.filetype == undefined ? "Datei" : props.filetype) + " auswählen..."} 
+                placeholder={(props.fileType == 'none' || props.fileType == undefined ? "Datei" : props.fileType) + " auswählen..."} 
                 value={fileName}
                 onClick={handleFileTextFieldClick} 
                 onChange={handleFileTextChange}

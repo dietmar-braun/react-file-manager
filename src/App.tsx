@@ -6,6 +6,7 @@ import  ReactFileManagerFileForm  from './lib/components/ReactFileManagerFileFor
 function App() {
   return (
     <div className="App">
+      <ReactFileManagerFileForm />
       <header className="App-header">
         
         <p>
@@ -20,7 +21,7 @@ function App() {
           Learn React
         </a>
       </header>
-      <ReactFileManagerFileForm />
+      
     </div>
   );
 }
