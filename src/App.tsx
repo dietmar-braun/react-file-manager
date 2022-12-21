@@ -1,11 +1,15 @@
+import React from 'react';
 import './App.css';
+
+import  ReactFileManagerFileForm  from './lib/components/ReactFileManagerFileForm';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <a
           className="App-link"
@@ -16,6 +20,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <ReactFileManagerFileForm />
     </div>
   );
 }
