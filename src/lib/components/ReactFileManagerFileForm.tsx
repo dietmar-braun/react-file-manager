@@ -16,6 +16,11 @@ interface IFileForm {
 }
 
 const ReactFileManagerFileForm:React.FC<IFileForm> = (props) => { 
+    const [isMounted, setIsMounted] = useState<boolean>();
+    
+
+
+   
     const [fileName, setFileName] = useState<string>('');
     //const [fileType, setFileTye] = useState<string>('');
 
@@ -24,7 +29,8 @@ const ReactFileManagerFileForm:React.FC<IFileForm> = (props) => {
     const [submitButtonClass, setSubmitButtonClass] = useState<string>('');
 
     const handleFileTextFieldClick = (event:any) => {
-        //$('#tb_uploader_file_input').click();
+        //const click =new Event ("clickFileInput", {bubbles:true});
+        document.getElementById('rmf-uploader-file-input')?.click();
         event.target.blur();
     };
 
@@ -47,7 +53,6 @@ const ReactFileManagerFileForm:React.FC<IFileForm> = (props) => {
     return (
         <form onSubmit={handleFormSubmit} className={"rfm-file-form" + (props.isCentered ? " center" : "")}>
             <input type="text" className={inputClass + ' rmf-file-input'}
-
                 placeholder={(props.fileType == 'none' || props.fileType == undefined ? "Datei" : props.fileType) + " auswählen..."} 
                 value={fileName}
                 onClick={handleFileTextFieldClick} 
